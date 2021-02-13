@@ -8,13 +8,13 @@
                                        app:pull_to_refresh_lottieFile="@raw/pull_to_refresh"
                                        app:trigger_offset_top="125dp">
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_type="content"
-        app:layoutManager="android.support.v7.widget.LinearLayoutManager"/>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 </be.rijckaert.tim.lib.LottiePullToRefreshLayout>

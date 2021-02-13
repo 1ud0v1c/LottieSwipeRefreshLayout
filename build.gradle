@@ -1,18 +1,16 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        kotlin_version = "1.4.20"
-        lottie_version = "2.5.5"
-        rxjava_version = "2.1.14"
-        rxandroid_version = "2.0.2"
-        android_support_version = "27.1.1"
-        junit_version = "4.12"
+        kotlin_version = "1.4.21"
+        lottie_version = "2.8.0"
+        rxjava_version = "2.2.21"
+        rxandroid_version = "2.1.1"
+        junit_version = "4.13.1"
     }
 
     ext.libraries = [
-            android_appcompat  : "com.android.support:appcompat-v7:$android_support_version",
-            design_support     : "com.android.support:design:$android_support_version",
-            kotlin             : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version",
+            android_appcompat  : 'androidx.appcompat:appcompat:1.0.0',
+            design_support     : 'com.google.android.material:material:1.0.0',
+            kotlin             : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
             lottie             : "com.airbnb.android:lottie:$lottie_version",
             rxjava2            : "io.reactivex.rxjava2:rxjava:$rxjava_version",
             rxandroid          : "io.reactivex.rxjava2:rxandroid:$rxandroid_version",

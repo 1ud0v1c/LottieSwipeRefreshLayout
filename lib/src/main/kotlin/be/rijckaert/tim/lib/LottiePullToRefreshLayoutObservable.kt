@@ -1,6 +1,5 @@
 package be.rijckaert.tim.lib
 
-import be.rijckaert.tim.lib.LottiePullToRefreshes
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.MainThreadDisposable

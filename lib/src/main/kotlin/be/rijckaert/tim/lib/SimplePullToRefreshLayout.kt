@@ -12,11 +12,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
 import android.view.animation.DecelerateInterpolator
+import kotlin.math.abs
 
-@SuppressLint("DrawAllocation")
-open class SimplePullToRefreshLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0)
+open class SimplePullToRefreshLayout
+@JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0)
     : ViewGroup(context, attrs, defStyle), RefreshView {
-
     var triggerOffSetTop = 0
         private set
     var maxOffSetTop = 0
@@ -54,18 +54,22 @@ open class SimplePullToRefreshLayout @JvmOverloads constructor(context: Context,
 
     override fun onFinishInflate() {
         super.onFinishInflate()
-
         if (childCount != 2) {
             throw IllegalStateException("Only a topView and a contentView are allowed. Exactly 2 children are expected, but was $childCount")
         }
-
         (0 until childCount).map {
             val child = getChildAt(it)
             val layoutParams = child.layoutParams as LayoutParams
             when (layoutParams.type) {
-                SimplePullToRefreshLayout.ViewType.UNKNOWN -> throw IllegalStateException("Could not parse layout type")
-                SimplePullToRefreshLayout.ViewType.TOP_VIEW -> topChildView = ChildView(child)
-                SimplePullToRefreshLayout.ViewType.CONTENT -> contentChildView = ChildView(child)
+                ViewType.TOP_VIEW -> {
+                    topChildView = ChildView(child)
+                }
+                ViewType.CONTENT -> {
+                    contentChildView = ChildView(child)
+                }
+                ViewType.UNKNOWN -> {
+                    throw IllegalStateException("Could not parse layout type")
+                }
             }
         }
     }
@@ -127,7 +131,7 @@ open class SimplePullToRefreshLayout @JvmOverloads constructor(context: Context,
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
         fun checkIfScrolledFurther(ev: MotionEvent, dy: Float, dx: Float) =
                 if (!contentChildView.view.canScrollVertically(-1)) {
-                    ev.y > downY && Math.abs(dy) > Math.abs(dx)
+                    ev.y > downY && abs(dy) > abs(dx)
                 } else {
                     false
                 }
@@ -180,7 +184,9 @@ open class SimplePullToRefreshLayout @JvmOverloads constructor(context: Context,
         val pullFraction: Float = if (offsetY == 0F) 0F else if (triggerOffSetTop > offsetY) offsetY / triggerOffSetTop else 1F
         offsetY = if (offsetY < 0) 0f else if (offsetY > maxOffSetTop) maxOffSetTop.toFloat() else offsetY
 
-        onProgressListeners.forEach { it(pullFraction) }
+        onProgressListeners.forEach {
+            it(pullFraction)
+        }
         lastPullFraction = pullFraction
 
         topChildView.view.y = topChildView.positionAttr.top + offsetY
@@ -214,7 +220,6 @@ open class SimplePullToRefreshLayout @JvmOverloads constructor(context: Context,
         }
     }
 
-    //<editor-fold desc="Helpers">
     fun onProgressListener(onProgressListener: (Float) -> Unit) {
         onProgressListeners.add(onProgressListener)
     }
@@ -235,7 +240,7 @@ open class SimplePullToRefreshLayout @JvmOverloads constructor(context: Context,
 
     override fun generateLayoutParams(p: ViewGroup.LayoutParams?) = LayoutParams(p)
 
-    class LayoutParams : ViewGroup.MarginLayoutParams {
+    class LayoutParams: MarginLayoutParams {
         var type: ViewType = ViewType.UNKNOWN
 
         constructor(c: Context, attrs: AttributeSet?) : super(c, attrs) {
@@ -266,7 +271,12 @@ open class SimplePullToRefreshLayout @JvmOverloads constructor(context: Context,
         TRIGGERING
     }
 
-    data class ChildView(val view: View, val positionAttr: PositionAttr = PositionAttr())
-    data class PositionAttr(val left: Int = 0, val top: Int = 0, val right: Int = 0, val bottom: Int = 0, val height: Int = 0)
-    //</editor-fold>
+    data class ChildView(val view: View,
+                         val positionAttr: PositionAttr = PositionAttr())
+
+    data class PositionAttr(val left:   Int = 0,
+                            val top:    Int = 0,
+                            val right:  Int = 0,
+                            val bottom: Int = 0,
+                            val height: Int = 0)
 }

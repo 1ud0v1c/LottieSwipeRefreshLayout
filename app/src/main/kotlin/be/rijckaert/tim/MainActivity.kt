@@ -2,8 +2,8 @@ package be.rijckaert.tim
 
 import android.os.Bundle
 import android.os.Handler
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import android.widget.Toast
 import be.rijckaert.tim.lib.LottiePullToRefreshLayout
 import be.rijckaert.tim.lib.refreshes
@@ -11,7 +11,6 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
-
     private val source: List<String>
         get() {
             val lowerBound = (1..100).random()
