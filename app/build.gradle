@@ -2,13 +2,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
-
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
     defaultConfig {
         applicationId "be.rijckaert.tim"
-        minSdkVersion rootProject.ext.defaultMinSdkVersion
-        targetSdkVersion rootProject.ext.defaultTargetSdkVersion
+        minSdkVersion 21
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -31,13 +30,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
-    compile project(':lib')
-
-    testCompile(libraries.junit)
-
-    compile(
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':lib')
+    implementation(
             libraries.android_appcompat,
             libraries.design_support,
             libraries.kotlin,
@@ -45,4 +40,5 @@ dependencies {
             libraries.rxjava2,
             libraries.rxandroid
     )
+    testImplementation(libraries.junit)
 }
