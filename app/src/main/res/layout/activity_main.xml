@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<be.rijckaert.tim.lib.LottiePullToRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                       xmlns:app="http://schemas.android.com/apk/res-auto"
-                                       android:id="@id/swipe_refresh"
-                                       android:layout_width="match_parent"
-                                       android:layout_height="match_parent"
-                                       app:max_offset_top="250dp"
-                                       app:pull_to_refresh_lottieFile="@raw/pull_to_refresh"
-                                       app:trigger_offset_top="125dp">
+<com.ludovic.vimont.lib.LottiePullToRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@id/swipe_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:max_offset_top="250dp"
+    app:pull_to_refresh_lottieFile="@raw/earth_moon"
+    app:trigger_offset_top="125dp">
 
     <androidx.recyclerview.widget.RecyclerView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_type="content"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_type="content" />
 
-</be.rijckaert.tim.lib.LottiePullToRefreshLayout>
+</com.ludovic.vimont.lib.LottiePullToRefreshLayout>

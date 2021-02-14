@@ -13,7 +13,7 @@ Tell `LottiePullToRefreshLayout` about your content view. `app:layout_type="cont
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<be.rijckaert.tim.lib.LottiePullToRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.ludovic.vimont.lib.LottiePullToRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                        xmlns:app="http://schemas.android.com/apk/res-auto"
                                        android:id="@id/swipe_refresh"
                                        android:layout_width="match_parent"
@@ -28,7 +28,7 @@ Tell `LottiePullToRefreshLayout` about your content view. `app:layout_type="cont
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-</be.rijckaert.tim.lib.CustomPullToRefreshLayout>
+</com.ludovic.vimont.lib.CustomPullToRefreshLayout>
 ```
 
 ## Attributes
