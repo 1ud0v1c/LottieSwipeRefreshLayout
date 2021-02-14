@@ -1,4 +1,4 @@
-package com.ludovic.vimont.lib
+package com.ludovic.vimont
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import com.airbnb.lottie.LottieAnimationView
 import com.airbnb.lottie.LottieDrawable
+import com.ludovic.vimont.lib.R
 
 class LottiePullToRefreshLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0)
     : SimplePullToRefreshLayout(context, attrs, defStyle) {

@@ -1,9 +1,8 @@
-package com.ludovic.vimont.lib
+package com.ludovic.vimont
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
-import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.util.TypedValue
@@ -12,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams
 import android.view.animation.DecelerateInterpolator
+import com.ludovic.vimont.lib.R
 import kotlin.math.abs
 
 open class SimplePullToRefreshLayout

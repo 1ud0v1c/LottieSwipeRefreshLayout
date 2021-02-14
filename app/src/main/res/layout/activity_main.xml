@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.ludovic.vimont.lib.LottiePullToRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.ludovic.vimont.LottiePullToRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@id/swipe_refresh"
     android:layout_width="match_parent"
@@ -15,4 +15,4 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_type="content" />
 
-</com.ludovic.vimont.lib.LottiePullToRefreshLayout>
+</com.ludovic.vimont.LottiePullToRefreshLayout>

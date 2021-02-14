@@ -5,8 +5,6 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.Toast
-import com.ludovic.vimont.lib.LottiePullToRefreshLayout
-import com.ludovic.vimont.lib.refreshes
 import java.util.*
 import java.util.concurrent.TimeUnit
 

@@ -1,4 +1,4 @@
-package com.ludovic.vimont.lib
+package com.ludovic.vimont
 
 import io.reactivex.Observable
 import io.reactivex.Observer

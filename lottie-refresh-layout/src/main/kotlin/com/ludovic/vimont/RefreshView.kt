@@ -1,4 +1,4 @@
-package com.ludovic.vimont.lib
+package com.ludovic.vimont
 
 interface RefreshView {
     fun stopRefreshing()
